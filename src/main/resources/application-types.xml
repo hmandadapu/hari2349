@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="DemoInput" format="json">
+      <types:shape format="weave" example="examples/Orders.json"><![CDATA[%dw 2.0
+
+type DemoInput = {|
+  Orders: Array<{|    OrderID: Number {"typeId": "int"},     Customer: String,     Country: String,     Items: Array<{|      ProductID: String,       UnitPrice: Number {"typeId": "int"},       Quantity: Number {"typeId": "int"},       Variants: Array<{|        Color: String,         Quantity: Number {"typeId": "int"}      |}>
+    |}>
+  |}>
+|} {"example": "{\\\"Orders\\\":[{\\\"OrderID\\\":2501,\\\"Customer\\\":\\\"Alex\\\",\\\"Country\\\":\\\"USA\\\",\\\"Items\\\":[{\\\"ProductID\\\":\\\"P05\\\",\\\"UnitPrice\\\":50,\\\"Quantity\\\":1,\\\"Variants\\\":[{\\\"Color\\\":\\\"Blue\\\",\\\"Quantity\\\":1}]}]},{\\\"OrderID\\\":2502,\\\"Customer\\\":\\\"Bob\\\",\\\"Country\\\":\\\"UK\\\",\\\"Items\\\":[{\\\"ProductID\\\":\\\"P05\\\",\\\"UnitPrice\\\":50,\\\"Quantity\\\":5,\\\"Variants\\\":[{\\\"Color\\\":\\\"Blue\\\",\\\"Quantity\\\":2},{\\\"Color\\\":\\\"Red\\\",\\\"Quantity\\\":3}]},{\\\"ProductID\\\":\\\"P06\\\",\\\"UnitPrice\\\":80,\\\"Quantity\\\":1,\\\"Variants\\\":[{\\\"Color\\\":\\\"Yellow\\\",\\\"Quantity\\\":1}]}]},{\\\"OrderID\\\":2503,\\\"Customer\\\":\\\"Peter\\\",\\\"Country\\\":\\\"UK\\\",\\\"Items\\\":[{\\\"ProductID\\\":\\\"P07\\\",\\\"UnitPrice\\\":120,\\\"Quantity\\\":10,\\\"Variants\\\":[{\\\"Color\\\":\\\"Green\\\",\\\"Quantity\\\":4},{\\\"Color\\\":\\\"Yellow\\\",\\\"Quantity\\\":6}]}]}]}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#71b20f04-e036-44c5-abe2-906273dfb262">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="DemoInput"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
