@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="ab3b0e74-f191-4f24-98a4-82ba62abe31e" >
+		<wsc:connection wsdlLocation="${united.host}/essentials/delta?wsdl" service="TicketServiceService" port="TicketServicePort" address="http://mu.mulesoft-training.com/essentials/delta" />
+	</wsc:config>
+	<flow name="lisAllFlightsFlow" doc:id="22c7598b-dfd3-440c-b60e-19bf5cd9b31c" >
+		<logger level="INFO" doc:name="Logger" doc:id="a6f12e2d-1fa1-453f-b42f-35f973bac023" message="---------listAllFlightsFlow started.............."/>
+		<wsc:consume doc:name="Consume" doc:id="72f95ce1-55e1-4a11-9c67-9e4e496504c8" config-ref="Web_Service_Consumer_Config" operation="listAllFlights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d21a88b6-f55e-4871-859a-cef2b2624a82" message="----listAllFlights executed successfully......"/>
+
+    </flow>
+</mule>

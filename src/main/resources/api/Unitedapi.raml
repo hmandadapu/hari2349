@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: United Flights API
+baseUri: https://localhot:8081/Unitedflights
+types: 
+ Unitedflights: !include ..\examples\get-unitedflights.json
+
+/Unitedflights:
+ get: 
+  responses: 
+   200:
+    body: 
+     application/json: 
+      example: !include ..\examples\get-unitedflights.json
+
+ /unitedFlightsByDestination:
+   get: 
+    queryParameters: 
+     destination: 
+     required: true
+    responses: 
+     200:
+      body: 
+       application/json: 
+        example: !include ..\examples\get-unitedflights.json
+
+/listAllFlights:
+ get: 
+  responses: 
+   200:
+    body: 
+     application/json: 
+       example: !include ..\examples\get-unitedflights.json
+                  
+ /findFlight: 
+  get: 
+   queryParameters: 
+    destination: 
+     required: true
+   responses: 
+    200: 
+     body: 
+      application/json: 
+       example: !include ..\examples\get-unitedflights.json  

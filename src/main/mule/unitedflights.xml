@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="ab25752c-a97d-442f-8f2d-9466828a452f" >
+		<http:request-connection host="${united.host}" port="${united.port}" />
+	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="8bbc0bf3-e981-4fe4-ab3f-3b683f88c126" file="united-dev.properties" />
+	<flow name="unitedflightsFlow" doc:id="171c176b-cbf6-4c67-8d2b-dc7504c85689" >
+		<logger level="INFO" doc:name="Logger" doc:id="c115705e-76da-4aa0-9e07-4a95063f0b28" message="------------ The Request got received..............."/>
+		<http:request method="GET" doc:name="Request" doc:id="52e5b6cd-03d0-4c51-a505-f5ee9abeaeae" config-ref="HTTP_Request_configuration" path="/essentials/united/flights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2dc11948-165a-43a2-9a69-898ce4d711da" message="resposne............#[payload]"/>
+	</flow>
+</mule>

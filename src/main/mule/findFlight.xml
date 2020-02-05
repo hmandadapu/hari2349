@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="findFlightFlow" doc:id="40dcbd6e-4d39-4d17-a26c-f68ef050c5a5" >
+		<logger level="INFO" doc:name="Logger" doc:id="8269e106-4e0f-4acb-8fc4-66a90fc5fbe0" message="-------------findFlight process started----------------"/>
+		<set-variable value="#[attributes.queryParams.destination]" doc:name="Set Variable" doc:id="0654f4b1-f6c9-492c-a041-46746a214452" variableName="destination"/>
+		<wsc:consume doc:name="Consume" doc:id="bfbec2f8-e7f9-4c66-ab88-bb920fee1779" config-ref="Web_Service_Consumer_Config" operation="findFlight"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d55b93e3-c940-422d-81b8-cfc6afe10fd7" message="-------------FindFlight flow executed successfully----------------"/>
+	</flow>
+</mule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="unitedflightsbydestinationFlow" doc:id="02cebb32-bec9-462d-99a8-664b5009c973" >
+		<logger level="INFO" doc:name="Logger" doc:id="7d1d76d2-f2bd-45e9-aed6-63311b3544a9" message="------------ The process got initiated............"/>
+		<set-variable value="attributes.queryParams.destination" doc:name="Set Variable" doc:id="0ca89aeb-1b27-436a-8f20-758242c68872" variableName="Input"/>
+		<http:request method="GET" doc:name="Request" doc:id="2535b794-0bf5-4606-a72b-514bf376573f" config-ref="HTTP_Request_configuration" path="/essentials/united/flights/#[vars.Input]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="18d9fc35-3173-4f81-a3ff-41966d450d62" message="---------The respose is #[payload]"/>
+	</flow>
+</mule>

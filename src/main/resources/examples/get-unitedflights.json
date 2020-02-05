@@ -1,0 +1,44 @@
+{
+    "flights": [
+        {
+            "code": "ER38sd",
+            "price": 400,
+            "origin": "MUA",
+            "destination": "SFO",
+            "departureDate": "2015/03/20",
+            "planeType": "Boeing 737",
+            "airlineName": "United",
+            "emptySeats": 0
+        },
+        {
+            "code": "ER45if",
+            "price": 345.99,
+            "origin": "MUA",
+            "destination": "LAX",
+            "departureDate": "2015/02/11",
+            "planeType": "Boeing 737",
+            "airlineName": "United",
+            "emptySeats": 52
+        },
+        {
+            "code": "ER9fje",
+            "price": 845,
+            "origin": "MUA",
+            "destination": "CLE",
+            "departureDate": "2015/07/11",
+            "planeType": "Boeing 727",
+            "airlineName": "United",
+            "emptySeats": 32
+        },        
+        {
+            "code": "ER04kf",
+            "price": 532,
+            "origin": "MUA",
+            "destination": "PDX",
+            "departureDate": "2015/02/12",
+            "planeType": "Boeing 777",
+            "airlineName": "United",
+            "emptySeats": 30
+        }
+    ]
+}
